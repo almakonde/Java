@@ -1,0 +1,81 @@
+public class NoPointers
+{
+  public static void main(String args[]) 
+  {
+    int intVar;
+    Integer integerVar;
+    int[] iDim = new int[5];
+    
+
+    intVar = 5;
+    integerVar = new Integer(7);
+    iDim[0] = 9;
+    MyPoint mp = new MyPoint(1,1);
+
+    System.out.println("Before modification:"); 
+    System.out.println("intVar = " + intVar); 
+    System.out.println("integerVar = " +
+      integerVar); 
+    System.out.println("iDim = " + iDim[0]); 
+    mp.printPoint();
+
+    ClearIntVar(intVar);
+    ClearIntegerVar(integerVar);
+    ClearDim(iDim);
+    ClearMyPoint(mp);
+
+    System.out.println("\nAfter modification:"); 
+    System.out.println("intVar = " + intVar); 
+    System.out.println("integerVar = " +
+      integerVar); 
+    System.out.println("iDim = " + iDim[0]); 
+    mp.printPoint();
+  }
+
+  static void ClearIntVar(int v)
+  {
+    v = 0;
+  }
+
+  static void ClearIntegerVar(Integer v)
+  {
+    v = new Integer(0);
+  }
+
+  static void ClearMyPoint(MyPoint p)
+  {
+    p.setPoint(0,0);
+  }
+
+  static void ClearDim(int[] d)
+  {
+    d[0] = 0;
+  }
+}
+
+class MyPoint
+{
+  private int m_x=0;
+  private int m_y=0;
+  
+
+  MyPoint(int ix, int iy)
+  {
+    m_x = ix;
+    m_y = iy;
+  }
+  
+
+  public void setPoint(int ix, int iy)
+  {
+    m_x = ix;
+    m_y = iy;
+  }
+  
+
+  public void printPoint()
+  {
+    System.out.println("Point: (" 
+     + m_x + "," + m_y + ")"); 
+  }
+}
